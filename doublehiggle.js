@@ -6,14 +6,14 @@
 
 
     $.fn.enableEnlarge = function () {
-        var imagesrc = '"' + this.get()[0].src + '"';
         this.click(function () {
+            var imagesrc = '"' + $(this).get()[0].src + '"';
             $('#imageViewer').remove();
             $('#imageViewer').on('show', function () {
                 $(this).find('.modalbody').css({
                     width: 'auto',
                     height: 'auto',
-                    'max-height': '100%'
+                        'max-height': '100%'
                 });
             });
             $('body').append(getHTML(imagesrc));
@@ -23,3 +23,5 @@
     };
 
 }(jQuery));
+
+$('img').enableEnlarge();
